@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Item } from "./components/item/Item";
 
 function App() {
+  const objects = [
+    {
+      bigValues: ["AC", "Del", "%"],
+      smallValues: "/",
+    },
+    {
+      bigValues: ["7", "8", "9"],
+      smallValues: "x",
+    },
+    {
+      bigValues: ["4", "5", "6"],
+      smallValues: "+",
+    },
+    {
+      bigValues: ["1", "2", "3"],
+      smallValues: "AC",
+    },
+    {
+      bigValues: ["0", "."],
+      smallValues: "=",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <header>
+      <div className="calculator-container">
+        <input
+          className="display-header"
+          type="text"
+          placeholder="468 % 2 = 234"
+        ></input>
+        {objects.map((object, index) => (
+          <Item
+            key={index}
+            bigValues={object.bigValues}
+            smallValues={object.smallValues}
+            index={index}
+          />
+        ))}
+      </div>
+    </header>
   );
 }
 
